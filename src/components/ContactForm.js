@@ -57,6 +57,12 @@ const ContactForm = () => {
             {JSON.stringify(data, null, 2)}
           </pre>
         )}
+        <select id="mood">
+          <option data-testid="select-option" key="1">Select your mood!</option>
+          <option>Happy</option>
+          <option>Sad</option>
+          <option>Mad</option>
+        </select>
         <input type="submit" />
       </form>
     </div>

@@ -28,8 +28,7 @@ test('Adds user data object to the DOM when form is filled out and submitted & t
     fireEvent.change(email, { target: { value: 'gjwilson7390@gmail.com' }})
     fireEvent.change(message, { target: { value: 'What is up?' }})
 
-    // Query for submit button
-    const submitButton = screen.getByRole('button', { name: /submit/i })
+   
 
     
 
@@ -44,6 +43,9 @@ test('Adds user data object to the DOM when form is filled out and submitted & t
 
     expect(errors).not.toBeInTheDocument()
 
+    
+    // Query for submit button
+     const submitButton = screen.getByRole('button', { name: /submit/i })
 
     // Click on submit button
     fireEvent.click(submitButton)
@@ -111,4 +113,16 @@ test('Test that first name required validation error message is working', async 
     expect(error).toBeInTheDocument()
 
 
+})
+
+test('A mood is selected from drop-down list', () => {
+
+    const { getByTestId } = render(<ContactForm />);
+
+    fireEvent.change(getByTestId('select-option'), { target: { value: 1 } }) 
+
+    let option = getByTestId('select-option')
+
+    expect(option.selected).toBeTruthy();
+    
 })
